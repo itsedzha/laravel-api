@@ -73,4 +73,10 @@ class PostController extends Controller
 
         return response()->json(['message' => 'Post deleted successfully']);
     }
+
+    public function __construct()
+{
+    $this->middleware('auth:sanctum')->only(['store', 'update', 'destroy']);
+}
+
 }
